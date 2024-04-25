@@ -2,16 +2,16 @@ package com.oops.hotel;
 
 import java.util.*;
 
-public class BloodBankMain {
+public class BloodBankUser {
 
-	public static void main(String[] args) {
+	public void user()
+	{
 		String bloodType, donorName, password;
 		int quantity, noOfDays, i = 0;
 		char donatedBefore;
 		BloodBank a = new BloodBank();
 		Donate b = new Donate();
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("              ***************Blood Bank***************");
 		System.out.println("Do you want to donate blood(yes for donating blood/no for receiving blood):");
 		String donor = scanner.next();
 		List<String> bloodgroup = new ArrayList<>();
@@ -201,3 +201,4 @@ public class BloodBankMain {
 		}
 	}
 }
+
