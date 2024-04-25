@@ -1,7 +1,7 @@
 package com.oops.hotel;
 
 public class BloodBank {
-	String bloodType,donorName,recipientName,bloodGroup;
+	String bloodType,donorName,recipientName,bloodGroup,donorId;
 	int quantity,noOfDays,quantityReceived;
 	char donatedbefore;
 	public BloodBank()
@@ -9,6 +9,14 @@ public class BloodBank {
 		
 	}
 	
+	public String getDonorId() {
+		return donorId;
+	}
+
+	public void setDonorId(String donorId) {
+		this.donorId = donorId;
+	}
+
 	public int getQuantityReceived() {
 		return quantityReceived;
 	}
@@ -68,13 +76,16 @@ public class BloodBank {
 		this.quantity = quantity;
 	}
 	
-	public BloodBank(String bloodType, String donorName, String recipientName, String bloodGroup, int quantity,
-			int noOfDays, int quantityReceived, char donatedbefore) {
+
+
+	public BloodBank(String bloodType, String donorName, String recipientName, String bloodGroup, String donorId,
+			int quantity, int noOfDays, int quantityReceived, char donatedbefore) {
 		super();
 		this.bloodType = bloodType;
 		this.donorName = donorName;
 		this.recipientName = recipientName;
 		this.bloodGroup = bloodGroup;
+		this.donorId = donorId;
 		this.quantity = quantity;
 		this.noOfDays = noOfDays;
 		this.quantityReceived = quantityReceived;
@@ -83,10 +94,12 @@ public class BloodBank {
 
 	@Override
 	public String toString() {
-		return "BloodBank [BloodType=" + bloodType + ", donorName=" + donorName + ", recipientName=" + recipientName
-				+ ", bloodGroup=" + bloodGroup + ", quantity=" + quantity + ", noOfDays=" + noOfDays
-				+ ", quantityReceived=" + quantityReceived + ", donatedbefore=" + donatedbefore + "]";
+		return "BloodBank [bloodType=" + bloodType + ", donorName=" + donorName + ", recipientName=" + recipientName
+				+ ", bloodGroup=" + bloodGroup + ", donorId=" + donorId + ", quantity=" + quantity + ", noOfDays="
+				+ noOfDays + ", quantityReceived=" + quantityReceived + ", donatedbefore=" + donatedbefore + "]";
 	}
+
+	
 
 
 	}
