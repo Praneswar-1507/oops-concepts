@@ -8,7 +8,7 @@ public class BloodBankAdmin {
 		String adminName=d.next();
 		while(!adminName.matches("abc123"))
 		{
-			System.out.println("Enter admin name:");
+			System.out.println("Enter Valid name:");
 			adminName=d.next();
 		}
 		System.out.println("Enter password:");
