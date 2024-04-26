@@ -8,11 +8,11 @@ public class BloodBankMain {
 		BloodBankUser e=new BloodBankUser();
 		BloodBankAdmin g=new BloodBankAdmin();
 		System.out.println("                  **************BloodBank*******************");
-		System.out.println("Select \n 1.admin \n 2.user");
+		System.out.println("Select \n1.admin \n2.user");
 		o.selectOption=scan.nextInt();
 		if(o.selectOption<0)
 		{
-			System.out.println("Select \n 1.admin \n 2.user");
+			System.out.println("Select \n1.admin \n2.user");
 			o.selectOption=scan.nextInt();
 		}
 		switch(o.selectOption)

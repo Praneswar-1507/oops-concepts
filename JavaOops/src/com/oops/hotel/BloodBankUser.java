@@ -27,6 +27,7 @@ public class BloodBankUser {
 
 				System.out.println("Enter Donor id:");
 				String donorID = scanner.next();
+				
 				for (i = 0; i < l; i++) {
 
 					if (donorId[i].equals(donorID)) {
@@ -51,6 +52,7 @@ public class BloodBankUser {
 					}
 
 				}
+			
 
 				System.out.println("Have You Donated Before(y/n):");
 				donatedBefore = scanner.next().charAt(0);

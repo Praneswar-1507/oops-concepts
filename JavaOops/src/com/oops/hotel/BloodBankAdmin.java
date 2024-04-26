@@ -6,14 +6,14 @@ public class BloodBankAdmin {
 		Scanner d=new Scanner(System.in);
 		System.out.println("Enter admin name:");
 		String adminName=d.next();
-		while(!adminName.matches("^[a-zA-z]+$"))
+		while(!adminName.matches("abc123"))
 		{
 			System.out.println("Enter admin name:");
 			adminName=d.next();
 		}
 		System.out.println("Enter password:");
 		String password=d.next();
-		while(!password.matches("^(?=.*[a-z])(?=.*[A-z])(?=.*[0-9])(?=.*[@#$%]).{7}$"))
+		while(!password.matches("abc@123"))
 		{
 			System.out.println("Enter password:");
 			 password=d.next();
@@ -26,12 +26,12 @@ public class BloodBankAdmin {
 		{
 		case 1:
 		{
-			System.out.println("Donor Details");
+			System.out.println("Donor Details:\n1.Name:sachin\t BloodGroup:Ab+\t ContactNo:12345678 \n2.Name:dhoni\t BloodGroup:A+\t ContactNo:13456788 \n3.Name:virat\t BloodGroup:Ab-\t ContactNo:1456788");
 			break;
 		}
 		case 2:
 		{
-			System.out.println("Recepient Details");
+			System.out.println("Recepient Details:\n1.Name:gill\t  BloodGroup:A-\t ContactNo:1345689 \n2.Name:Abd\t BloodGroup:Ab+\t ContactNo:12345687 \n3.Name:kholi\t BloodGroup:O-\t ContactNo:2324567");
 			
 		}
 
