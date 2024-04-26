@@ -4,10 +4,27 @@ import java.util.*;
 
 public class BloodBankUser {
 
+	boolean donorIdChecker(Scanner scanner,String [] donorId,String donorID,BloodBank a) {
+		while(scanner.hasNext()) {
+			 donorID = scanner.next();
+			for (int i = 0; i < donorId.length; i++) {
+
+				if (donorId[i].equals(donorID)) {
+					
+					System.out.println("matched");
+					a.setDonorId(donorID);
+					return true;
+				}
+			}
+			System.out.println("Enter valid ID:");
+		}
+		return false;
+		
+	}
 	public void user()
 	{
 		String bloodType, donorName, password;
-		int quantity, noOfDays, i = 0;
+		int quantity, noOfDays;
 		char donatedBefore;
 		BloodBank a = new BloodBank();
 		Donate b = new Donate();
@@ -19,40 +36,27 @@ public class BloodBankUser {
 		bloodgroup.add("B+");
 		bloodgroup.add("O+");
 		String[] donorId = { "abc123", "adc321", "ada223" };
-		int l = donorId.length;
+		
 		if (donor.equalsIgnoreCase("yes")) {
 			System.out.println("Are You New Donor(yes/no):");
 			String user = scanner.next();
 			if (user.equalsIgnoreCase("No")) {
-
+				String donorID =null;
 				System.out.println("Enter Donor id:");
-				String donorID = scanner.next();
-				
-				for (i = 0; i < l; i++) {
-
-					if (donorId[i].equals(donorID)) {
-						System.out.println("Enter Password:");
+				if(donorIdChecker(scanner,donorId,donorID,a)) {
+					System.out.println("Enter Password:");
+					password = scanner.next();
+					while (!password.matches("^(?=.*[a-z])(?=.*[A-z])(?=.*[0-9])(?=.*[@#$%]).{7}$")) {
+						System.out.println("Incorrect Password");
+						System.out.println(
+								"Password must contain atleast one uppercase,one lowercase,one digit,one symbol ");
 						password = scanner.next();
-						while (!password.matches("^(?=.*[a-z])(?=.*[A-z])(?=.*[0-9])(?=.*[@#$%]).{7}$")) {
-							System.out.println("Incorrect Password");
-							System.out.println(
-									"Password must contain atleast one uppercase,one lowercase,one digit,one symbol ");
-							password = scanner.next();
-
-						}
-						System.out.println("         ----------Login succesfully-----------");
-						break;
-					}
-
-					else {
-
-						System.out.println("Enter valid ID:");
-						donorID = scanner.next();
 
 					}
-
+					System.out.println("         ----------Login succesfully-----------");
+				
 				}
-			
+		
 
 				System.out.println("Have You Donated Before(y/n):");
 				donatedBefore = scanner.next().charAt(0);
@@ -76,7 +80,6 @@ public class BloodBankUser {
 						quantity = scanner.nextInt();
 					}
 					a.setBloodType(bloodType);
-					a.setDonorId(donorID);
 					a.setQuantity(quantity);
 
 					b.donate(a.getDonorId(), a.getBloodType());
@@ -101,7 +104,6 @@ public class BloodBankUser {
 							quantity = scanner.nextInt();
 						}
 						a.setBloodType(bloodType);
-						a.setDonorId(donorID);
 						a.setQuantity(quantity);
 
 						b.donate(a.getDonorId(), a.getBloodType());
