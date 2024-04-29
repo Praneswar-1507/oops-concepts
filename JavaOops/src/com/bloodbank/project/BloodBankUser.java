@@ -1,16 +1,16 @@
-package com.oops.hotel;
+package com.bloodbank.project;
 
 import java.util.*;
 
 public class BloodBankUser {
 
-	boolean donorIdChecker(Scanner scanner,String [] donorId,String donorID,BloodBank a) {
-		while(scanner.hasNext()) {
-			 donorID = scanner.next();
+	boolean donorIdChecker(Scanner scanner, String[] donorId, String donorID, BloodBank a) {
+		while (scanner.hasNext()) {
+			donorID = scanner.next();
 			for (int i = 0; i < donorId.length; i++) {
 
 				if (donorId[i].equals(donorID)) {
-					
+
 					System.out.println("matched");
 					a.setDonorId(donorID);
 					return true;
@@ -19,15 +19,15 @@ public class BloodBankUser {
 			System.out.println("Enter valid ID:");
 		}
 		return false;
-		
+
 	}
-	public void user()
-	{
+
+	public void user() {
 		String bloodType, donorName, password;
 		int quantity, noOfDays;
 		char donatedBefore;
 		BloodBank a = new BloodBank();
-		Donate b = new Donate();
+		BloodBankAbstract b=new BloodBankAbstract();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Do you want to donate blood(yes for donating blood/no for receiving blood):");
 		String donor = scanner.next();
@@ -36,14 +36,14 @@ public class BloodBankUser {
 		bloodgroup.add("B+");
 		bloodgroup.add("O+");
 		String[] donorId = { "abc123", "adc321", "ada223" };
-		
+
 		if (donor.equalsIgnoreCase("yes")) {
 			System.out.println("Are You New Donor(yes/no):");
 			String user = scanner.next();
 			if (user.equalsIgnoreCase("No")) {
-				String donorID =null;
+				String donorID = null;
 				System.out.println("Enter Donor id:");
-				if(donorIdChecker(scanner,donorId,donorID,a)) {
+				if (donorIdChecker(scanner, donorId, donorID, a)) {
 					System.out.println("Enter Password:");
 					password = scanner.next();
 					while (!password.matches("^(?=.*[a-z])(?=.*[A-z])(?=.*[0-9])(?=.*[@#$%]).{7}$")) {
@@ -51,19 +51,14 @@ public class BloodBankUser {
 						System.out.println(
 								"Password must contain atleast one uppercase,one lowercase,one digit,one symbol ");
 						password = scanner.next();
-
 					}
 					System.out.println("         ----------Login succesfully-----------");
-				
 				}
-		
-
 				System.out.println("Have You Donated Before(y/n):");
 				donatedBefore = scanner.next().charAt(0);
 				while (!(donatedBefore == 'y' || donatedBefore == 'n')) {
 					System.out.println("Enter Either y or n:");
 					donatedBefore = scanner.next().charAt(0);
-
 				}
 				if (donatedBefore == 'n') {
 					System.out.println("Enter Blood Type(A+,AB+,AB-,O+,O-,A-,B-,B+):");
@@ -72,7 +67,6 @@ public class BloodBankUser {
 						System.out.println("Enter valid Blood Type(A+,AB+ve,AB-ve,o+ve,o-ve,A-,b-):");
 						bloodType = scanner.next();
 					}
-
 					System.out.println("Enter Quantity Of Blood(unit):");
 					quantity = scanner.nextInt();
 					while (quantity < 0) {
@@ -85,7 +79,6 @@ public class BloodBankUser {
 					b.donate(a.getDonorId(), a.getBloodType());
 					b.donate(a.getQuantity());
 				}
-
 				if (donatedBefore == 'y') {
 					System.out.println("Enter number of days since previous blood donation:");
 					noOfDays = scanner.nextInt();
@@ -112,7 +105,6 @@ public class BloodBankUser {
 					} else {
 						System.out.println("Not Eligible To Donate");
 					}
-
 				}
 			} else {
 				System.out.println("Enter user name:");
@@ -156,11 +148,8 @@ public class BloodBankUser {
 				a.setBloodType(bloodType);
 				a.setQuantity(quantity);
 				b.donate(a.getDonorName(), a.getBloodType(), a.getQuantity());
-
 			}
-		}
-
-		else {
+		} else {
 			System.out.println("Enter Recipient name:");
 			String recipientName = scanner.next();
 			while (!recipientName.matches("^[a-zA-z]+$")) {
@@ -185,17 +174,14 @@ public class BloodBankUser {
 			}
 
 			for (String s : bloodgroup) {
-
 				if (s.equalsIgnoreCase(bloodGroup)) {
 					System.out.println("blood available");
-
 					System.out.println("Enter quantity of blood(unit):");
 					int quantityReceived = scanner.nextInt();
 					if (quantityReceived < 0) {
 						System.out.println("Enter Positive value:");
 						quantityReceived = scanner.nextInt();
 					}
-
 					a.setRecipientName(recipientName);
 					a.setQuantityReceived(quantityReceived);
 					b.bloodReceived(a.getRecipientName(), a.getBloodGroup(), a.getQuantityReceived());
@@ -205,4 +191,3 @@ public class BloodBankUser {
 		}
 	}
 }
-

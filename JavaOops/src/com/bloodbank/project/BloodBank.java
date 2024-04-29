@@ -1,4 +1,4 @@
-package com.oops.hotel;
+package com.bloodbank.project;
 
 public class BloodBank {
 	String bloodType,donorName,recipientName,bloodGroup,donorId;

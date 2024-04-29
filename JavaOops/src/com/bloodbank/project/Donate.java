@@ -1,6 +1,6 @@
-package com.oops.hotel;
+package com.bloodbank.project;
 
-public class Donate {
+public abstract class Donate {
 	public void donate(String donorId,String bloodType)
 	{
 		System.out.println("Donor ID:"+donorId+"\n"+"Blood Type:"+bloodType+"ve");
@@ -10,12 +10,8 @@ public class Donate {
 		System.out.println("Quantity Of Blood Donated:"+quantity+"unit");
 		System.out.println("              ----------Thanks For Donating Blood----------");
 	}
-	public void donate(String donorName,String bloodType,int quantity)
-	{
-		System.out.println("Donor name:"+donorName+"\n"+"Blood Type:"+bloodType+"ve");
-		System.out.println("Quantity Of Blood Donated:"+quantity+"unit");
-		System.out.println("              ---------Thanks For Donating Blood----------");
-	}
+	public abstract void donate(String donorName,String bloodType,int quantity);
+	
 	public void bloodReceived(String recipientName,String bloodGroup,int quantityReceived)
 	{
 		int cost=quantityReceived*500;

@@ -1,4 +1,4 @@
-package com.oops.hotel;
+package com.bloodbank.project;
 import java.util.*;
 public class BloodBankAdmin {
 	public void admin()
