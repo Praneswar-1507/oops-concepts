@@ -1,7 +1,7 @@
 package com.bloodbank.project;
 
 public class BloodBank {
-	String bloodType,donorName,recipientName,bloodGroup,donorId;
+	String bloodType,donorName,recipientName,bloodGroup,donorId,password;
 	int quantity,noOfDays,quantityReceived,selectOption;
 	char donatedbefore;
 	public BloodBank()
@@ -9,6 +9,14 @@ public class BloodBank {
 		
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public int getSelectOption() {
 		return selectOption;
 	}
