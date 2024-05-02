@@ -1,14 +1,14 @@
 package com.bloodbank.projectnew;
 
 public class BloodBank {
-	String bloodType,donorName,recipientName,bloodGroup,donorId,password;
-	int quantity,noOfDays,quantityReceived,selectOption;
+	String bloodType, donorName, recipientName, bloodGroup, donorId, password;
+	int quantity, noOfDays, quantityReceived, selectOption;
 	char donatedbefore;
-	public BloodBank()
-	{
-		
+
+	public BloodBank() {
+
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
@@ -76,25 +76,27 @@ public class BloodBank {
 	public String getBloodType() {
 		return bloodType;
 	}
+
 	public void setBloodType(String bloodType) {
 		this.bloodType = bloodType;
 	}
+
 	public String getDonorName() {
 		return donorName;
 	}
+
 	public void setDonorName(String donorName) {
 		this.donorName = donorName;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
 
-
-	
 	public BloodBank(String bloodType, String donorName, String recipientName, String bloodGroup, String donorId,
 			int quantity, int noOfDays, int quantityReceived, int selectOption, char donatedbefore) {
 		super();
@@ -118,16 +120,4 @@ public class BloodBank {
 				+ ", donatedbefore=" + donatedbefore + "]";
 	}
 
-	
-
-	
-
-
-	}
-
-
-	
-	
-
-
-
+}
