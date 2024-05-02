@@ -1,5 +1,6 @@
-package com.bloodbank.project;
+package com.bloodbank.projectnew;
 
+import java.sql.SQLException;
 import java.util.*;
 
 public class BloodBankUser {
@@ -17,8 +18,8 @@ public class BloodBankUser {
 		}
 		return false;
 		}
-	public void user() {
-		String bloodType, donorName, password;
+	public void user() throws ClassNotFoundException, SQLException {
+		String bloodType, donorName, password,donorID=null;
 		int quantity, noOfDays;
 		char donatedBefore;
 		BloodBank a = new BloodBank();
@@ -36,7 +37,9 @@ public class BloodBankUser {
 			System.out.println("Are You New Donor(yes/no):");
 			String user = scanner.next();
 			if (user.equalsIgnoreCase("No")) {
-				String donorID = null;
+				System.out.println("enter Donor name:");
+                 donorName=scanner.next();
+                 a.setDonorName(donorName);
 				System.out.println("Enter Donor id:");
 				if (donorIdChecker(scanner, donorId, donorID, a)) {
 					System.out.println("Enter Password:");
@@ -75,6 +78,8 @@ public class BloodBankUser {
 						}
 				}
 			}} else {
+				System.out.println("Enter Donor Id");
+				donorID=scanner.next();
 				System.out.println("Enter user name:");
 				donorName = scanner.next();
 				while (!donorName.matches("^[a-zA-z]+$")) {
@@ -98,10 +103,15 @@ public class BloodBankUser {
 				a.setBloodType(c.BloodTypeCheck(scanner, bloodType));
 				System.out.println("Enter Quantity Of Blood(unit):");
 				quantity = scanner.nextInt();
+				a.setDonorId(donorID);
 				a.setQuantity(c.quantityCheck(scanner, quantity));
 				a.setDonorName(donorName);
 				b.donate(a.getDonorName(), a.getBloodType(), a.getQuantity());
+				
 			}
+			Jdbc.insert(a.getDonorId(),a.getDonorName(),a.getBloodType(),a.getQuantity());
+			Jdbc.update(a.getDonorId(),a.getDonorName(),a.getBloodType(),a.getQuantity());
+			Jdbc.delete(a.getDonorId());
 		}else {
 			System.out.println("Enter Recipient name:");
 			String recipientName = scanner.next();
